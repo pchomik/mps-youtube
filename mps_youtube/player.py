@@ -57,6 +57,9 @@ def play_range(songlist, shuffle=False, repeat=False, override=False):
             raise KeyboardInterrupt
             break
 
+        except HTTPError:
+            returncode = 1
+
         # skip forbidden, video removed/no longer available, etc. tracks
         except TypeError:
             returncode = 1
